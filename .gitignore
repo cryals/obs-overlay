@@ -2,6 +2,8 @@ node_modules/
 dist/
 release/
 out/
+output/
+.playwright-cli/
 *.log
 *.tmp
 .DS_Store

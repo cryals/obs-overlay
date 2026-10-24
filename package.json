@@ -1,6 +1,8 @@
 {
   "name": "obs-mouse-overlay",
   "version": "1.0.0",
+  "description": "Cute mouse and keyboard Browser Source overlays for OBS.",
+  "author": "Pink Kitty Overlay contributors",
   "private": true,
   "type": "module",
   "main": "desktop.mjs",
@@ -13,14 +15,19 @@
   "dependencies": {
     "express": "^5.1.0",
     "uiohook-napi": "^1.5.5",
-    "ws": "^8.18.3",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
     "electron": "^37.2.6",
     "electron-builder": "^26.0.12"
   },
   "build": {
     "appId": "dev.pinkkitty.obsoverlay",
-    "productName": "Pink Kitty OBS Overlay",
+    "productName": "PickMe Overlay",
     "asar": true,
+    "asarUnpack": [
+      "node_modules/uiohook-napi/**"
+    ],
     "files": [
       "server.mjs",
       "desktop.mjs",
@@ -31,7 +38,7 @@
     ],
     "win": {
       "target": "portable",
-      "artifactName": "Pink-Kitty-OBS-Overlay-${version}-portable.exe"
+      "artifactName": "PickMe-Overlay-${version}-portable.exe"
     }
   }
 }
