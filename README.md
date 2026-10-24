@@ -24,9 +24,9 @@ These are screenshots from the running local overlay pages. The mouse follows th
 
 ## Download and run
 
-Every push runs GitHub Actions and attaches one file named `PickMe-Overlay-*-portable.exe`.
+Every push to `main` runs GitHub Actions and publishes a GitHub Release with one file named `PickMe-Overlay-*-portable.exe`.
 
-1. Download the portable `.exe` from the workflow artifact.
+1. Download the portable `.exe` from the repository's **Releases** page.
 2. Run it — there is no installer.
 3. Keep its small status window open while streaming. It confirms that the local overlay server is running.
 
