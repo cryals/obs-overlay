@@ -1,0 +1,6 @@
+{
+  "name": "Pink Kitty",
+  "base": "base-ai.png",
+  "pressReferences": { "left": "left-ai.png", "right": "right-ai.png", "middle": "middle-ai.png" },
+  "notes": "Press references were AI-generated. The overlay uses composited glow layers so all button combinations work."
+}

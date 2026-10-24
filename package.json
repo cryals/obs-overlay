@@ -1,0 +1,37 @@
+{
+  "name": "obs-mouse-overlay",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "desktop.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "demo": "node server.mjs --demo",
+    "desktop": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "uiohook-napi": "^1.5.5",
+    "ws": "^8.18.3",
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "dev.pinkkitty.obsoverlay",
+    "productName": "Pink Kitty OBS Overlay",
+    "asar": true,
+    "files": [
+      "server.mjs",
+      "desktop.mjs",
+      "overlay/**/*",
+      "keyboard/**/*",
+      "skins/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": "portable",
+      "artifactName": "Pink-Kitty-OBS-Overlay-${version}-portable.exe"
+    }
+  }
+}
