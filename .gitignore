@@ -1,6 +1,8 @@
 node_modules/
 dist/
 music/reader/
+music-reader/bin/
+music-reader/obj/
 release/
 out/
 output/
