@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <b>Cute live mouse and keyboard input overlays for OBS.</b><br>
+  <b>Cute live mouse, keyboard and music overlays for OBS.</b><br>
   One portable Windows app · transparent Browser Sources · no installer.
 </p>
 
@@ -32,17 +32,22 @@ Every push to `main` runs GitHub Actions and publishes a GitHub Release with one
 
 ## OBS setup
 
-Add two **Browser Source** entries. Both use **width `512`** and **height `512`**.
+Add Browser Source entries. Use **width `512`** and **height `512`** for mouse and keyboard; music uses **width `512`** and **height `162`**.
 
 | Source | URL |
 | --- | --- |
 | Mouse | `http://127.0.0.1:31337/overlay/` |
 | Keyboard | `http://127.0.0.1:31337/keyboard/` |
+| Music | `http://127.0.0.1:31337/music/` |
 
 Enable **Refresh browser when scene becomes active** for each source.
 
 > [!IMPORTANT]
 > In each Browser Source’s **Properties**, delete everything from **Custom CSS** — leave the field completely empty. OBS supplies default CSS in this field; it can add a background, spacing, or break the transparent composition.
+
+## Music and settings
+
+The app opens a settings window at launch with a live music preview. Pick **Auto**, **Spotify**, or **Other player**, plus the PickMe or dark skin. The system source reads Windows’ active media session, so it supports Spotify, browser players, and other compatible apps without a token or a Spotify login. It provides the real cover, track title, artist, playback progress and status.
 
 ## Build from source
 

@@ -10,7 +10,8 @@
     "start": "node server.mjs",
     "demo": "node server.mjs --demo",
     "desktop": "electron .",
-    "dist": "electron-builder --win portable"
+    "build:music": "dotnet publish music-reader/PickMe.MusicReader.csproj -c Release -o music/reader",
+    "dist": "npm run build:music && electron-builder --win portable"
   },
   "dependencies": {
     "express": "^5.1.0",
@@ -26,13 +27,16 @@
     "productName": "PickMe Overlay",
     "asar": true,
     "asarUnpack": [
-      "node_modules/uiohook-napi/**"
+      "node_modules/uiohook-napi/**",
+      "music/media-session.ps1"
     ],
     "files": [
       "server.mjs",
       "desktop.mjs",
       "overlay/**/*",
       "keyboard/**/*",
+      "music/**/*",
+      "settings/**/*",
       "skins/**/*",
       "node_modules/**/*"
     ],

@@ -1,0 +1,4 @@
+const $=s=>document.querySelector(s);let settings={};
+async function load(){settings=await fetch('/api/settings').then(r=>r.json());$('#source').value=settings.musicSource;$('#skin').value=settings.skin;$('#state').textContent='● Работает — локальный сервер запущен'}
+$('#save').onclick=async()=>{settings.musicSource=$('#source').value;settings.skin=$('#skin').value;await fetch('/api/settings',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(settings)});$('#state').textContent='● Настройки сохранены'};
+document.querySelectorAll('nav button').forEach(button=>button.onclick=()=>{document.querySelectorAll('nav button,.panel').forEach(x=>x.classList.remove('active'));button.classList.add('active');document.querySelector(`#${button.dataset.tab}`).classList.add('active')});load();

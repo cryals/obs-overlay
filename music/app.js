@@ -1,0 +1,4 @@
+const $=id=>document.getElementById(id), root=$('music'); let last={};
+function time(value){value=Math.max(0,Math.floor(value||0));return `${Math.floor(value/60)}:${String(value%60).padStart(2,'0')}`}
+function apply(s){const m=s.music||{};root.className=s.settings?.skin==='dark'?'dark':'pickme';root.classList.toggle('paused',m.status!=='Playing');$('title').textContent=m.available?m.title:'Нет активного трека';$('artist').textContent=m.available?(m.artist||m.app||'Unknown artist'):'Запусти музыку в выбранном источнике';$('current').textContent=time(m.position);$('total').textContent=time(m.duration);$('progress').style.width=`${m.duration?Math.min(100,m.position/m.duration*100):0}%`;if(m.cover&&m.cover!==last.cover){$('cover').src=m.cover;last.cover=m.cover}}
+function connect(){const ws=new WebSocket('ws://127.0.0.1:31337');ws.onmessage=e=>apply(JSON.parse(e.data));ws.onclose=()=>setTimeout(connect,1000)}connect();
